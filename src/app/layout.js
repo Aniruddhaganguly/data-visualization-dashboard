@@ -7,10 +7,22 @@ const Layout = ({ children }) => (
       <title>COVID-19 Data Analysis</title>
       <meta name="description" content="Visualize COVID-19 case data by country and year" />
       <link rel="icon" href="/favicon.ico" />
-      <script id="hydro_config" type="text/javascript">
-    window.Hydro_tagId = "ac0824bf-d3a5-4ce6-9f1e-a2ba0bbb0e55";
-  </script>
-<script id="hydro_script" src="https://track.hydro.online/"></script>
+      
+      {/* Tracking Script */}
+      <script
+        id="hydro_config"
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.Hydro_tagId = "ac0824bf-d3a5-4ce6-9f1e-a2ba0bbb0e55";
+          `,
+        }}
+      />
+      <script
+        id="hydro_script"
+        src="https://track.hydro.online/"
+        async
+      ></script>
     </head>
     <body className="bg-gray-100 text-gray-900">
       <div className="min-h-screen flex flex-col">
@@ -18,7 +30,7 @@ const Layout = ({ children }) => (
         <header className="bg-indigo-600 text-white shadow-md text-center py-4">
           <div className="container mx-auto">
             <h1 className="text-2xl font-semibold">
-            COVID-19 Data Analysis
+              COVID-19 Data Analysis
             </h1>
           </div>
         </header>
