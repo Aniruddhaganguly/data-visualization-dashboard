@@ -1,11 +1,11 @@
 // src/components/PieChartComponent.js
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Chart, ArcElement, Tooltip } from 'chart.js'; // Removed Legend import
 import chroma from 'chroma-js';
 
 // Register the required elements
-Chart.register(ArcElement, Tooltip, Legend);
+Chart.register(ArcElement, Tooltip); // Unregister Legend here
 
 // Function to format values
 const formatValue = (value) => {
@@ -19,6 +19,7 @@ const formatValue = (value) => {
 
 const PieChartComponent = ({ chartData }) => {
     const { labels, data } = chartData;
+    console.log(labels, 'PieChartComponent');
 
     // Generate a distinct color palette based on the number of labels
     const colors = chroma.scale('Set3').colors(data.length); // Use a color scale
@@ -35,9 +36,18 @@ const PieChartComponent = ({ chartData }) => {
         ],
     };
 
+    // Options for the Pie chart, removing the legend
+    const options = {
+        plugins: {
+            legend: {
+                display: false, // This hides the legend
+            },
+        },
+    };
+
     return (
         <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-            <Pie data={pieChartData} />
+            <Pie data={pieChartData} options={options} /> {/* Add options here */}
         </div>
     );
 };

@@ -95,7 +95,7 @@ const Dashboard = () => {
                 setSelectedYear={setSelectedYear}
             />
             <LineChartComponent chartData={chartData} country={selectedCountry} />
-            <BarChartComponent chartData={chartData} />
+            {/* <BarChartComponent chartData={chartData} /> */}
            
 
             <div className="data-chart-links">
