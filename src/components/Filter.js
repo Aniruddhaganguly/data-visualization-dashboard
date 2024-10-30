@@ -4,7 +4,7 @@ import './Filter.css';
 
 const Filter = ({ countries, selectedCountry, onCountryChange, selectedYear, setSelectedYear }) => {
     const currentYear = new Date().getFullYear();
-    const years = Array.from({ length: 10 }, (_, i) => currentYear - i);
+    const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
 
     return (
         <div className="filter-container">
